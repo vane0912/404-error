@@ -1,47 +1,68 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
+  <nav>
+    <h2>404 NOT FOUND</h2>
+  </nav>
+  <main class="style-components">
+    <ScareCrowComponent/>
+    <ErrorTextAndButton />
   </main>
+  <footer>
+    <p>created by vane09 - devChallenges.io</p>
+  </footer>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
+<script setup>
+  import ErrorTextAndButton from './components/Error-text-and-button.vue';
+  import ScareCrowComponent from './components/ScareCrowComponent.vue';
+</script>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+@mixin heightAndWidth(){
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #FFFF;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
+  h2{
+    font-family: 'Inconsolata', monospace;
+    margin: 0;
+  }
+  nav{
+    padding: 3% 5%;
+  }
+  #app{
+    @include heightAndWidth();
+  }
+  body{
+    @include heightAndWidth();
+  }
+  html{
+    @include heightAndWidth();
+  }
+  .style-components{
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    justify-content: space-evenly;
+    height: 70%;
+    align-items: center;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
   }
-}
+  footer p{
+    color: #BDBDBD;
+    font-size: 10px;
+  }
+  @media screen and (max-width: 916px) {
+    .style-components{
+      flex-direction: column;
+      height: 90%;
+      padding: 10%;
+    }
+    h2{
+      font-size: 20px;
+    }
+  }
 </style>
